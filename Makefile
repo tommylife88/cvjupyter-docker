@@ -16,7 +16,7 @@ start:
 		$(IMAGE):$(VERSION)
 
 contener=`docker ps -a | grep $(CONTAINER) | awk '{print $$1}'`
-image=`docker images | grep $(IMAGE) | grep $() | awk '{ print $$3 }'`
+image=`docker images | grep $(IMAGE) | grep $(VERSION) | awk '{ print $$3 }'`
 
 clean: rm
 	@if [ "$(image)" != "" ] ; then \
